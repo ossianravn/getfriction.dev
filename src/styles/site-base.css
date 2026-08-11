@@ -200,10 +200,6 @@ button:focus-visible,
 }
 
 @media (max-width: 42rem) {
-  .product-links > :first-child {
-    display: none;
-  }
-
   .install-command {
     width: 100%;
   }
