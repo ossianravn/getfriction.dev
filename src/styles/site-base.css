@@ -1,0 +1,220 @@
+:root {
+  --background: #060606;
+  --foreground: #f4f4ef;
+  --card: #0d0d0d;
+  --card-foreground: #f4f4ef;
+  --popover: #111111;
+  --popover-foreground: #f4f4ef;
+  --primary: #f4f4ef;
+  --primary-foreground: #080808;
+  --secondary: #171717;
+  --secondary-foreground: #f4f4ef;
+  --muted: #131313;
+  --muted-foreground: #a5a59d;
+  --accent: #ffa40b;
+  --accent-foreground: #080808;
+  --border: #2b2b29;
+  --input: #30302d;
+  --ring: #ffa40b;
+  --brand-green: #62c476;
+  --brand-orange: #ffa40b;
+  --surface-raised: #0b0b0b;
+  --text-secondary: #b0b0a8;
+  --text-tertiary: #85857e;
+  --page-gutter: clamp(1.25rem, 4vw, 4rem);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1rem, 0.97rem + 0.12vw, 1.0625rem);
+  line-height: 1.55;
+  letter-spacing: -0.012em;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ol,
+ul,
+dl,
+dd,
+figure,
+blockquote,
+pre {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:not([data-slot="button"]) {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 0.125rem solid var(--brand-orange);
+  outline-offset: 0.1875rem;
+}
+
+::selection {
+  background: var(--brand-orange);
+  color: #050505;
+}
+
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.skip-link {
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 100;
+  translate: 0 -200%;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 0.75rem 1.125rem;
+  transition: translate 150ms ease;
+}
+
+.skip-link:focus {
+  translate: 0;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.05em;
+  width: fit-content;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.07em;
+}
+
+.brand-mark--compact {
+  font-size: 1.125rem;
+  letter-spacing: -0.04em;
+}
+
+.brand-mark__prompt {
+  margin-inline-end: 0.06em;
+  color: var(--brand-green);
+  font-weight: 700;
+}
+
+.brand-mark__cursor {
+  display: inline-block;
+  width: 0.52em;
+  height: 0.88em;
+  margin-inline-start: 0.12em;
+  background: var(--brand-orange);
+}
+
+.install-command {
+  width: min(100%, 39rem);
+}
+
+.install-command input {
+  min-width: 0;
+  text-overflow: ellipsis;
+}
+
+.product-links {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.eyebrow {
+  color: var(--text-tertiary);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  max-width: 42rem;
+}
+
+.section-heading--centered {
+  align-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading--wide {
+  max-width: 52rem;
+}
+
+.section-heading h2 {
+  font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.section-heading > p:last-child:not(.eyebrow) {
+  max-width: 58ch;
+  color: var(--text-secondary);
+  font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  text-wrap: pretty;
+}
+
+@media (max-width: 42rem) {
+  .product-links > :first-child {
+    display: none;
+  }
+
+  .install-command {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .skip-link {
+    transition: none;
+  }
+}
