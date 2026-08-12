@@ -1,4 +1,4 @@
-.conventions,
+.skills,
 .integrations {
   max-width: 84rem;
   margin-inline: auto;
@@ -6,7 +6,7 @@
   padding: clamp(6rem, 10vw, 9rem) var(--page-gutter);
 }
 
-.conventions__list {
+.skills__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-block-start: 4.5rem;
@@ -15,7 +15,7 @@
   border-radius: 1rem;
 }
 
-.conventions__list li {
+.skills__list li {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -23,53 +23,49 @@
   padding: 1.75rem;
 }
 
-.conventions__list li:not(:last-child) {
+.skills__list li:not(:last-child) {
   border-inline-end: 1px solid var(--border);
 }
 
-.conventions__meta {
+.skills__meta {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.conventions__meta span,
-.conventions__meta p {
+.skills__meta span,
+.skills__meta p {
   font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.conventions__meta span {
+.skills__meta span {
   color: var(--brand-green);
 }
 
-.conventions__meta p {
+.skills__meta p {
   color: var(--text-tertiary);
   text-align: end;
 }
 
-.conventions__list h3 {
+.skills__list h3 {
   margin-block-start: 3.5rem;
   font-size: 1.5rem;
   font-weight: 500;
-}
-
-.conventions__list h3 code {
-  font: inherit;
   letter-spacing: -0.04em;
 }
 
-.conventions__list li > p {
+.skills__list li > p {
   margin-block-start: 1rem;
   color: var(--text-secondary);
   font-size: 0.9375rem;
   line-height: 1.55;
 }
 
-.conventions__command {
+.skills__command {
   margin-block-start: auto;
   padding-block-start: 2rem;
   color: var(--brand-orange);
@@ -77,15 +73,11 @@
   overflow-wrap: anywhere;
 }
 
-.conventions__note {
+.skills__note {
   margin-block-start: 1.25rem;
   color: var(--text-tertiary);
   font-size: 0.875rem;
   text-align: center;
-}
-
-.conventions__note code {
-  color: var(--text-secondary);
 }
 
 .integrations__list {
@@ -153,37 +145,23 @@
   line-height: 1.5;
 }
 
-.integrations__release-note {
-  display: grid;
-  grid-template-columns: 10rem 1fr;
-  gap: 1.5rem;
-  margin-block-start: 2rem;
-  border: 1px solid rgb(255 164 11 / 36%);
-  border-radius: 1rem;
-  background: rgb(255 164 11 / 4%);
-  padding: 1.25rem 1.5rem;
-}
-
-.integrations__release-note span {
-  color: var(--brand-orange);
-  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.integrations__release-note p,
+.integrations__note,
 .privacy__runtime {
+  max-width: 52rem;
+  margin-block-start: 2rem;
+  border-inline-start: 2px solid;
+  padding-inline-start: 1rem;
   color: var(--text-secondary);
   font-size: 0.9375rem;
   line-height: 1.55;
 }
 
+.integrations__note {
+  border-inline-start-color: var(--brand-orange);
+}
+
 .privacy__runtime {
-  max-width: 52rem;
-  margin-block-start: 2rem;
-  border-inline-start: 2px solid var(--brand-green);
-  padding-inline-start: 1rem;
+  border-inline-start-color: var(--brand-green);
 }
 
 @media (max-width: 58rem) {
@@ -193,25 +171,20 @@
 }
 
 @media (max-width: 42rem) {
-  .conventions__list {
+  .skills__list {
     grid-template-columns: 1fr;
   }
 
-  .conventions__list li {
+  .skills__list li {
     min-height: 19rem;
   }
 
-  .conventions__list li:not(:last-child) {
+  .skills__list li:not(:last-child) {
     border-inline-end: 0;
     border-block-end: 1px solid var(--border);
   }
 
   .integrations__list li {
     padding-inline: 1rem;
-  }
-
-  .integrations__release-note {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
   }
 }

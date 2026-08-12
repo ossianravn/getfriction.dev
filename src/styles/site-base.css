@@ -31,7 +31,6 @@ html {
 }
 
 body {
-  min-width: 20rem;
   min-height: 100dvh;
   background: var(--background);
   color: var(--foreground);
@@ -94,7 +93,7 @@ button:focus-visible,
   border: 0 !important;
 }
 
-.skip-link {
+a.skip-link {
   position: fixed;
   inset-block-start: 0.75rem;
   inset-inline-start: 0.75rem;
@@ -107,7 +106,7 @@ button:focus-visible,
   transition: translate 150ms ease;
 }
 
-.skip-link:focus {
+a.skip-link:focus {
   translate: 0;
 }
 

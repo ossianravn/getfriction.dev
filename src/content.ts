@@ -29,113 +29,77 @@ export const workflow = [
   },
 ] as const;
 
-export const openConventions = [
+export const skillWorkflow = [
   {
     number: "01",
-    label: "Persistent guidance",
-    title: "AGENTS.md",
-    body: "Carries capture guidance during normal work. Portable repository setup manages one Friction block without claiming the shared file belongs to one client.",
-    command: "friction setup standard",
+    label: "During the task",
+    title: "Capture what got in the way",
+    body: "A short instruction tells your agent when a problem is worth saving. It leaves one private note, then keeps working.",
+    command: "friction add",
   },
   {
     number: "02",
-    label: "Explicit workflows",
-    title: "Agent Skills",
-    body: "Packages friction-review and friction-fix as on-demand workflows. .agents/skills is the preferred cross-client location where the agent supports it.",
-    command: "friction setup skills",
+    label: "When you want the pattern",
+    title: "Review with a skill",
+    body: "The friction-review skill groups repeated notes and checks likely causes against the current code. It never changes anything.",
+    command: "friction-review",
   },
   {
     number: "03",
-    label: "Private data plane",
-    title: "Friction CLI",
-    body: "Stores observations locally and handles deterministic setup, lifecycle, and doctor commands without embedding an AI model.",
-    command: "friction doctor",
+    label: "When you approve a fix",
+    title: "Fix with a skill",
+    body: "The friction-fix skill works only on the verified problem you name. It fixes that scope, verifies the result, and resolves only the notes it addressed.",
+    command: "friction-fix",
   },
 ] as const;
 
 export const integrationGroups = [
   {
-    status: "Managed",
+    status: "Available now",
     description:
-      "Validated preview, apply, update, diagnosis, and undo for the named scope.",
+      "Friction v0.1.4 can install its capture instruction and both skills for these coding agents.",
     items: [
       {
         name: "Codex",
-        scope: "User + repository",
-        note: "Native user setup and shared repository guidance.",
+        scope: "User or repository",
+        note: "Enable Friction across your projects or for one repository.",
       },
       {
         name: "Claude Code",
-        scope: "User + repository",
-        note: "Native rules and skill directories.",
+        scope: "User or repository",
+        note: "Install the same capture, review, and fix workflow.",
       },
       {
         name: "Agent Skills",
-        scope: "User + repository + workspace",
-        note: "Explicit lifecycle for shared friction-review and friction-fix skills.",
+        scope: "Review and fix",
+        note: "Use friction-review for read-only analysis. friction-fix requires an explicitly named problem.",
       },
     ],
   },
   {
-    status: "Project standard",
+    status: "Coming in 0.2",
     description:
-      "Validated root AGENTS.md plus repository .agents/skills for compatible clients.",
+      "The next release adds setup for more agents. That setup is built and is now being tested in real sessions.",
     items: [
       {
-        name: "Open-standard setup",
-        scope: "Repository",
-        note: "Portable guidance with generic source attribution.",
-      },
-    ],
-  },
-  {
-    status: "Workspace managed",
-    description:
-      "Explicit workspace setup is implemented, with real-client validation still in progress.",
-    items: [
-      {
-        name: "OpenClaw",
-        scope: "Explicit workspace",
-        note: "Each agent workspace and runtime is configured independently.",
+        name: "OpenCode and Pi",
+        scope: "User or repository",
+        note: "Friction installs the instructions and skills each agent uses.",
       },
       {
-        name: "Hermes Agent",
-        scope: "Explicit workspace",
-        note: "Precedence-aware instructions and native skills.",
+        name: "OpenClaw and Hermes",
+        scope: "Each agent environment",
+        note: "Set up each isolated agent where it actually runs.",
       },
-    ],
-  },
-  {
-    status: "Manual or partial",
-    description:
-      "Friction provides the safe managed pieces and exact manual steps for the rest.",
-    items: [
       {
         name: "Warp",
-        scope: "User + repository",
-        note: "User capture is manual; repository setup uses the project standard.",
+        scope: "Guided setup",
+        note: "Project setup is handled for you. User-wide setup includes one manual rule step.",
       },
       {
-        name: "Generic",
+        name: "Other coding agents",
         scope: "Any shell-capable agent",
-        note: "Output-only guidance with an explicit source and shell transport.",
-      },
-    ],
-  },
-  {
-    status: "Compatible, unverified",
-    description:
-      "The client documents the conventions, but Friction has not passed its real-client acceptance path.",
-    items: [
-      {
-        name: "OpenCode",
-        scope: "User + repository",
-        note: "Setup avoids shadowing an existing CLAUDE.md fallback.",
-      },
-      {
-        name: "Pi",
-        scope: "User + repository",
-        note: "Context or skill loading can be disabled by client settings.",
+        note: "Generate portable instructions when your agent is not listed yet.",
       },
     ],
   },

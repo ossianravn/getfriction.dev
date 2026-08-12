@@ -94,12 +94,20 @@ try {
 
   assert.equal(homeResponse.status, 200);
   assert.match(homeHtml, /Your agent finished the task\./);
+  assert.match(homeHtml, /Local-first feedback for coding agents/);
   assert.match(
     homeHtml,
-    /Local-first feedback for engineering agents/,
+    /Three steps\. Two Agent Skills\. You stay in control\./,
   );
-  assert.match(homeHtml, /Built on open conventions/);
-  assert.match(homeHtml, /Specific support\. Honest boundaries\./);
+  assert.match(
+    homeHtml,
+    /Use Friction with the coding agent you already have\./,
+  );
+  assert.match(homeHtml, /Coming in 0\.2/);
+  assert.doesNotMatch(
+    homeHtml,
+    /Workspace managed|Private data plane|deterministic setup catalog/,
+  );
   assert.match(
     homeHtml,
     /Remote and sandboxed agents need Friction installed inside that\s+environment/,
