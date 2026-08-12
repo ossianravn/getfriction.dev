@@ -115,14 +115,27 @@ const workflowIcons = [MessageSquareText, FileWarning, SearchCheck, Wrench];
                 </div>
                 <h3>{step.title}</h3>
                 <p>{step.body}</p>
-                <code class="skills__command">{step.command}</code>
+                <dl class="skills__details">
+                  <div>
+                    <dt>Your part</dt>
+                    <dd>{step.action}</dd>
+                  </div>
+                  <div>
+                    <dt>What Friction uses</dt>
+                    <dd class="skills__mechanism">
+                      <span>{step.mechanismType}</span>
+                      <code>{step.mechanismName}</code>
+                    </dd>
+                  </div>
+                </dl>
               </li>
             ))
           }
         </ol>
         <p class="skills__note">
-          Capture happens during normal work. Review and fixing happen only
-          when you invoke the matching skill.
+          <code>friction add</code> is a CLI command. <code>friction-review</code>
+          and <code>friction-fix</code> are Agent Skills you invoke through your
+          agent.
         </p>
       </section>
       <section class="capture" aria-labelledby="capture-heading">

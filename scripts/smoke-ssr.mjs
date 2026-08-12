@@ -99,6 +99,10 @@ try {
     homeHtml,
     /Three steps\. Two Agent Skills\. You stay in control\./,
   );
+  assert.match(homeHtml, /Your part/);
+  assert.match(homeHtml, /What Friction uses/);
+  assert.match(homeHtml, /CLI command/);
+  assert.match(homeHtml, /Agent Skill/);
   assert.match(
     homeHtml,
     /Use Friction with the coding agent you already have\./,
