@@ -1,7 +1,7 @@
 # getfriction.dev
 
-The server-rendered website for Friction, a local-first feedback loop for coding
-agents.
+The server-rendered website for Friction, a local-first feedback loop for
+engineering agents and agent frameworks.
 
 ## Local development
 

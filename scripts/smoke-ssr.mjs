@@ -94,6 +94,16 @@ try {
 
   assert.equal(homeResponse.status, 200);
   assert.match(homeHtml, /Your agent finished the task\./);
+  assert.match(
+    homeHtml,
+    /Local-first feedback for engineering agents/,
+  );
+  assert.match(homeHtml, /Built on open conventions/);
+  assert.match(homeHtml, /Specific support\. Honest boundaries\./);
+  assert.match(
+    homeHtml,
+    /Remote and sandboxed agents need Friction installed inside that\s+environment/,
+  );
   assert.match(homeHtml, /rel="canonical" href="https:\/\/getfriction\.dev\/"/);
   assert.match(homeHtml, /type="application\/ld\+json"/);
 

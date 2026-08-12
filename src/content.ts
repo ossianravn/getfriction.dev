@@ -10,7 +10,7 @@ export const workflow = [
   {
     number: "01",
     title: "Work normally",
-    body: "Give Codex or Claude Code the task. Friction stays out of the way.",
+    body: "Give your agent the task. Friction stays out of the way.",
   },
   {
     number: "02",
@@ -26,6 +26,118 @@ export const workflow = [
     number: "04",
     title: "Authorize one fix",
     body: "You choose the verified problem. Nothing changes without your approval.",
+  },
+] as const;
+
+export const openConventions = [
+  {
+    number: "01",
+    label: "Persistent guidance",
+    title: "AGENTS.md",
+    body: "Carries capture guidance during normal work. Portable repository setup manages one Friction block without claiming the shared file belongs to one client.",
+    command: "friction setup standard",
+  },
+  {
+    number: "02",
+    label: "Explicit workflows",
+    title: "Agent Skills",
+    body: "Packages friction-review and friction-fix as on-demand workflows. .agents/skills is the preferred cross-client location where the agent supports it.",
+    command: "friction setup skills",
+  },
+  {
+    number: "03",
+    label: "Private data plane",
+    title: "Friction CLI",
+    body: "Stores observations locally and handles deterministic setup, lifecycle, and doctor commands without embedding an AI model.",
+    command: "friction doctor",
+  },
+] as const;
+
+export const integrationGroups = [
+  {
+    status: "Managed",
+    description:
+      "Validated preview, apply, update, diagnosis, and undo for the named scope.",
+    items: [
+      {
+        name: "Codex",
+        scope: "User + repository",
+        note: "Native user setup and shared repository guidance.",
+      },
+      {
+        name: "Claude Code",
+        scope: "User + repository",
+        note: "Native rules and skill directories.",
+      },
+      {
+        name: "Agent Skills",
+        scope: "User + repository + workspace",
+        note: "Explicit lifecycle for shared friction-review and friction-fix skills.",
+      },
+    ],
+  },
+  {
+    status: "Project standard",
+    description:
+      "Validated root AGENTS.md plus repository .agents/skills for compatible clients.",
+    items: [
+      {
+        name: "Open-standard setup",
+        scope: "Repository",
+        note: "Portable guidance with generic source attribution.",
+      },
+    ],
+  },
+  {
+    status: "Workspace managed",
+    description:
+      "Explicit workspace setup is implemented, with real-client validation still in progress.",
+    items: [
+      {
+        name: "OpenClaw",
+        scope: "Explicit workspace",
+        note: "Each agent workspace and runtime is configured independently.",
+      },
+      {
+        name: "Hermes Agent",
+        scope: "Explicit workspace",
+        note: "Precedence-aware instructions and native skills.",
+      },
+    ],
+  },
+  {
+    status: "Manual or partial",
+    description:
+      "Friction provides the safe managed pieces and exact manual steps for the rest.",
+    items: [
+      {
+        name: "Warp",
+        scope: "User + repository",
+        note: "User capture is manual; repository setup uses the project standard.",
+      },
+      {
+        name: "Generic",
+        scope: "Any shell-capable agent",
+        note: "Output-only guidance with an explicit source and shell transport.",
+      },
+    ],
+  },
+  {
+    status: "Compatible, unverified",
+    description:
+      "The client documents the conventions, but Friction has not passed its real-client acceptance path.",
+    items: [
+      {
+        name: "OpenCode",
+        scope: "User + repository",
+        note: "Setup avoids shadowing an existing CLAUDE.md fallback.",
+      },
+      {
+        name: "Pi",
+        scope: "User + repository",
+        note: "Context or skill loading can be disabled by client settings.",
+      },
+    ],
   },
 ] as const;
 

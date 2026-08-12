@@ -1,0 +1,217 @@
+.conventions,
+.integrations {
+  max-width: 84rem;
+  margin-inline: auto;
+  border-block-start: 1px solid var(--border);
+  padding: clamp(6rem, 10vw, 9rem) var(--page-gutter);
+}
+
+.conventions__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-block-start: 4.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.conventions__list li {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 22rem;
+  padding: 1.75rem;
+}
+
+.conventions__list li:not(:last-child) {
+  border-inline-end: 1px solid var(--border);
+}
+
+.conventions__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.conventions__meta span,
+.conventions__meta p {
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.conventions__meta span {
+  color: var(--brand-green);
+}
+
+.conventions__meta p {
+  color: var(--text-tertiary);
+  text-align: end;
+}
+
+.conventions__list h3 {
+  margin-block-start: 3.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.conventions__list h3 code {
+  font: inherit;
+  letter-spacing: -0.04em;
+}
+
+.conventions__list li > p {
+  margin-block-start: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.conventions__command {
+  margin-block-start: auto;
+  padding-block-start: 2rem;
+  color: var(--brand-orange);
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
+
+.conventions__note {
+  margin-block-start: 1.25rem;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.conventions__note code {
+  color: var(--text-secondary);
+}
+
+.integrations__list {
+  margin-block-start: 4.5rem;
+  border-block-end: 1px solid var(--border);
+}
+
+.integrations__list > section {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.72fr) minmax(24rem, 1.28fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  border-block-start: 1px solid var(--border);
+  padding-block: 2rem;
+}
+
+.integrations__status h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.integrations__status p {
+  max-width: 34rem;
+  margin-block-start: 0.625rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.integrations__list ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.integrations__list li {
+  min-width: 0;
+  border-inline-start: 1px solid var(--border);
+  padding-inline: 1.5rem;
+}
+
+.integrations__list li div {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.integrations__list strong {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.integrations__list li span {
+  color: var(--brand-green);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.75rem;
+  text-align: start;
+}
+
+.integrations__list li p {
+  margin-block-start: 0.625rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.integrations__release-note {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 1.5rem;
+  margin-block-start: 2rem;
+  border: 1px solid rgb(255 164 11 / 36%);
+  border-radius: 1rem;
+  background: rgb(255 164 11 / 4%);
+  padding: 1.25rem 1.5rem;
+}
+
+.integrations__release-note span {
+  color: var(--brand-orange);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.integrations__release-note p,
+.privacy__runtime {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.privacy__runtime {
+  max-width: 52rem;
+  margin-block-start: 2rem;
+  border-inline-start: 2px solid var(--brand-green);
+  padding-inline-start: 1rem;
+}
+
+@media (max-width: 58rem) {
+  .integrations__list > section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 42rem) {
+  .conventions__list {
+    grid-template-columns: 1fr;
+  }
+
+  .conventions__list li {
+    min-height: 19rem;
+  }
+
+  .conventions__list li:not(:last-child) {
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--border);
+  }
+
+  .integrations__list li {
+    padding-inline: 1rem;
+  }
+
+  .integrations__release-note {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

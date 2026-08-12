@@ -13,6 +13,8 @@ import { InstallCommand } from "@/components/install-command";
 import { ProductLinks } from "@/components/product-links";
 import {
   changelog,
+  integrationGroups,
+  openConventions,
   packageVersion,
   privacyFacts,
   productLinks,
@@ -20,9 +22,9 @@ import {
 } from "@/content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-const title = "Friction - Local-first feedback for coding agents";
+const title = "Friction - Local-first feedback for engineering agents";
 const description =
-  "Friction gives coding agents a private, local-first place to capture recurring workflow obstacles, review their causes, and improve the next task.";
+  "Friction gives engineering agents a private, local-first place to capture recurring workflow obstacles, review verified causes, and fix them only when you choose.";
 const workflowIcons = [MessageSquareText, FileWarning, SearchCheck, Wrench];
 ---
 
@@ -35,6 +37,7 @@ const workflowIcons = [MessageSquareText, FileWarning, SearchCheck, Wrench];
       <nav aria-label="Primary">
         <ul>
           <li><a href="#loop">How it works</a></li>
+          <li><a href="#integrations">Integrations</a></li>
           <li><a href="#privacy">Privacy</a></li>
           <li><a href="#changelog">Changelog</a></li>
         </ul>
@@ -44,13 +47,13 @@ const workflowIcons = [MessageSquareText, FileWarning, SearchCheck, Wrench];
 
     <main id="main" tabindex="-1">
       <section class="hero">
-        <p class="eyebrow">Local-first feedback for coding agents</p>
+        <p class="eyebrow">Local-first feedback for engineering agents</p>
         <h1>
           Your agent finished the task.
           <span>Friction remembers what made it harder.</span>
         </h1>
         <p class="hero__lede">
-          Give Codex and Claude Code a private place to record recurring
+          Give your engineering agents a private place to record recurring
           obstacles - then review and fix verified causes when you choose.
         </p>
         <InstallCommand client:load />
@@ -90,6 +93,39 @@ const workflowIcons = [MessageSquareText, FileWarning, SearchCheck, Wrench];
         </p>
       </section>
 
+      <section
+        class="conventions"
+        id="conventions"
+        aria-labelledby="conventions-heading"
+      >
+        <div class="section-heading section-heading--wide">
+          <p class="eyebrow">Built on open conventions</p>
+          <h2 id="conventions-heading">Three layers. One private loop.</h2>
+          <p>
+            Persistent guidance captures the obstacle. Skills make review and
+            fixing explicit. The CLI keeps the original evidence local.
+          </p>
+        </div>
+        <ol class="conventions__list">
+          {
+            openConventions.map((convention) => (
+              <li>
+                <div class="conventions__meta">
+                  <span>{convention.number}</span>
+                  <p>{convention.label}</p>
+                </div>
+                <h3><code>{convention.title}</code></h3>
+                <p>{convention.body}</p>
+                <code class="conventions__command">{convention.command}</code>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="conventions__note">
+          <code>.agents/skills</code> is a preferred cross-client convention
+          where supported - not a universal installation path.
+        </p>
+      </section>
       <section class="capture" aria-labelledby="capture-heading">
         <div class="section-heading">
           <p class="eyebrow">Saved observations</p>
@@ -104,13 +140,60 @@ const workflowIcons = [MessageSquareText, FileWarning, SearchCheck, Wrench];
         <CaptureTerminal client:visible />
       </section>
 
+      <section
+        class="integrations"
+        id="integrations"
+        aria-labelledby="integrations-heading"
+      >
+        <div class="section-heading section-heading--wide">
+          <p class="eyebrow">Integration status</p>
+          <h2 id="integrations-heading">Specific support. Honest boundaries.</h2>
+          <p>
+            Friction uses a deterministic setup catalog. A documented file
+            convention alone does not become a support claim. Run{" "}
+            <code>friction setup --list</code> for exact scopes and caveats.
+          </p>
+        </div>
+        <div class="integrations__list">
+          {
+            integrationGroups.map((group) => (
+              <section>
+                <div class="integrations__status">
+                  <h3>{group.status}</h3>
+                  <p>{group.description}</p>
+                </div>
+                <ul>
+                  {group.items.map((integration) => (
+                    <li>
+                      <div>
+                        <strong>{integration.name}</strong>
+                        <span>{integration.scope}</span>
+                      </div>
+                      <p>{integration.note}</p>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))
+          }
+        </div>
+        <aside class="integrations__release-note" aria-label="Release status">
+          <span>Release boundary</span>
+          <p>
+            The expanded setup catalog is prepared for Friction 0.2.0. npm
+            remains at v{packageVersion} until the separately approved package
+            release.
+          </p>
+        </aside>
+      </section>
+
       <section class="privacy" id="privacy" aria-labelledby="privacy-heading">
         <div class="section-heading section-heading--wide">
           <p class="eyebrow">Private by default</p>
           <h2 id="privacy-heading">Local means local.</h2>
           <p>
-            The CLI is deterministic and model-free. Your coding agent does the
-            reasoning only when you ask.
+            The CLI is deterministic and model-free. Your engineering agent
+            does the reasoning only when you ask.
           </p>
         </div>
         <ul class="privacy__grid">
@@ -123,6 +206,10 @@ const workflowIcons = [MessageSquareText, FileWarning, SearchCheck, Wrench];
             ))
           }
         </ul>
+        <p class="privacy__runtime">
+          Remote and sandboxed agents need Friction installed inside that
+          environment. Your local private store is not uploaded or synchronized.
+        </p>
       </section>
 
       <section
@@ -165,7 +252,7 @@ const workflowIcons = [MessageSquareText, FileWarning, SearchCheck, Wrench];
 
     <footer class="site-footer">
       <p>Friction is open source under the MIT License.</p>
-      <p>Built for one developer and their coding agents.</p>
+      <p>Built for one developer and their engineering agents.</p>
     </footer>
   </div>
 </BaseLayout>
