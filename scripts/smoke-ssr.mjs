@@ -121,6 +121,11 @@ try {
     /googletagmanager\.com\/gtag\/js\?id=G-HMVDT8P4W3/,
   );
   assert.match(homeHtml, /gtag\('config', 'G-HMVDT8P4W3'\)/);
+  assert.match(homeHtml, /GTM-PB7B63SH/);
+  assert.match(
+    homeHtml,
+    /googletagmanager\.com\/ns\.html\?id=GTM-PB7B63SH/,
+  );
   assert.match(homeHtml, /Public-site analytics/);
   assert.doesNotMatch(homeHtml, /No telemetry/);
   assert.match(homeHtml, /rel="canonical" href="https:\/\/getfriction\.dev\/"/);
