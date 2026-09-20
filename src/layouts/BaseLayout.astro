@@ -64,12 +64,6 @@ const structuredDataJson = JSON.stringify(structuredData).replace(
   /</g,
   "\\u003c",
 );
-const analyticsConfigScript = [
-  "window.dataLayer = window.dataLayer || [];",
-  "function gtag(){window.dataLayer.push(arguments);}",
-  "gtag('js', new Date());",
-  "gtag('config', 'G-HMVDT8P4W3');",
-].join("\n");
 const tagManagerScript = [
   "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':",
   "new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],",
@@ -93,16 +87,7 @@ const tagManagerScript = [
     <title>{title}</title>
     {
       import.meta.env.PROD && (
-        <>
-          <script is:inline set:html={tagManagerScript}></script>
-          <script
-            is:inline
-            async
-            fetchpriority="low"
-            src="https://www.googletagmanager.com/gtag/js?id=G-HMVDT8P4W3"
-          ></script>
-          <script is:inline set:html={analyticsConfigScript}></script>
-        </>
+        <script is:inline set:html={tagManagerScript}></script>
       )
     }
 

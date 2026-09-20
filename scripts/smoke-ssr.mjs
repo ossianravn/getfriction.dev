@@ -116,15 +116,14 @@ try {
     homeHtml,
     /Remote and sandboxed agents need Friction installed inside that\s+environment/,
   );
-  assert.match(
-    homeHtml,
-    /googletagmanager\.com\/gtag\/js\?id=G-HMVDT8P4W3/,
-  );
-  assert.match(homeHtml, /gtag\('config', 'G-HMVDT8P4W3'\)/);
   assert.match(homeHtml, /GTM-PB7B63SH/);
   assert.match(
     homeHtml,
     /googletagmanager\.com\/ns\.html\?id=GTM-PB7B63SH/,
+  );
+  assert.doesNotMatch(
+    homeHtml,
+    /G-HMVDT8P4W3|googletagmanager\.com\/gtag\/js/,
   );
   assert.match(homeHtml, /Public-site analytics/);
   assert.doesNotMatch(homeHtml, /No telemetry/);
