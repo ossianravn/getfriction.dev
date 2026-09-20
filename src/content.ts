@@ -138,7 +138,7 @@ export const savedObservations = [
 export const privacyFacts = [
   "Local storage",
   "No account",
-  "No telemetry",
+  "Public-site analytics",
   "No background process",
   "No transcript collection",
   "Explicit fixes and sharing",

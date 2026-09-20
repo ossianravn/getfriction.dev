@@ -116,6 +116,13 @@ try {
     homeHtml,
     /Remote and sandboxed agents need Friction installed inside that\s+environment/,
   );
+  assert.match(
+    homeHtml,
+    /googletagmanager\.com\/gtag\/js\?id=G-HMVDT8P4W3/,
+  );
+  assert.match(homeHtml, /gtag\('config', 'G-HMVDT8P4W3'\)/);
+  assert.match(homeHtml, /Public-site analytics/);
+  assert.doesNotMatch(homeHtml, /No telemetry/);
   assert.match(homeHtml, /rel="canonical" href="https:\/\/getfriction\.dev\/"/);
   assert.match(homeHtml, /type="application\/ld\+json"/);
 

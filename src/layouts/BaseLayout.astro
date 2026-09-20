@@ -64,6 +64,12 @@ const structuredDataJson = JSON.stringify(structuredData).replace(
   /</g,
   "\\u003c",
 );
+const analyticsConfigScript = [
+  "window.dataLayer = window.dataLayer || [];",
+  "function gtag(){window.dataLayer.push(arguments);}",
+  "gtag('js', new Date());",
+  "gtag('config', 'G-HMVDT8P4W3');",
+].join("\n");
 ---
 
 <!doctype html>
@@ -78,6 +84,20 @@ const structuredDataJson = JSON.stringify(structuredData).replace(
     <meta name="color-scheme" content="dark" />
 
     <title>{title}</title>
+    {
+      import.meta.env.PROD && (
+        <>
+          <script
+            is:inline
+            async
+            fetchpriority="low"
+            src="https://www.googletagmanager.com/gtag/js?id=G-HMVDT8P4W3"
+          ></script>
+          <script is:inline set:html={analyticsConfigScript}></script>
+        </>
+      )
+    }
+
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
